@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Almostdeliver - Lucknow Hub</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; margin: 0; background-color: #f8f9fa; }
+        .navbar { background-color: #d63031; color: white; padding: 15px; text-align: center; font-size: 24px; font-weight: bold; }
+        .hero { background-color: #ffffff; padding: 40px; text-align: center; border-bottom: 5px solid #d63031; }
+        .container { padding: 20px; text-align: center; }
+        .location-tag { display: inline-block; background: #ffeaa7; padding: 10px 20px; border-radius: 20px; margin: 10px; font-weight: bold; color: #2d3436; }
+        .btn { background-color: #00b894; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-size: 18px; display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">Almostdeliver</div>
+    <div class="hero">
+        <h1>Lucknow's Fastest Delivery Service</h1>
+        <p>Bringing your needs to your doorstep in minutes!</p>
+    </div>
+    <div class="container">
+        <h3>Currently Serving in Lucknow:</h3>
+        <div style="margin: 20px auto; background: #dfe6e9; padding: 20px; border-radius: 10px; width: 80%; border: 1px solid #b2bec3; text-align: center;">
+    <h3 style="color: #2d3436; margin-top: 0;">🔍 Track Your Order</h3>
+    <form method="GET" action="/">
+        <input type="text" name="search" placeholder="अपना नाम लिखें (जैसे: Deepa)..." 
+               style="padding: 12px; width: 60%; border-radius: 5px; border: 1px solid #ccc; font-size: 16px;">
+        <button type="submit" style="padding: 12px 20px; background: #d63031; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">
+            Track
+        </button>
+    </form>
+</div>
+        <div style="margin: 20px auto; background: #fff; padding: 15px; border-radius: 10px; width: 80%; border: 2px solid #d63031;">
+    <h3 style="color: #d63031; margin-top: 0;">📦 Live Orders (Lucknow Hub)</h3>
+    <ul style="list-style: none; padding: 0; text-align: left; display: inline-block; width: 100%;">
+        {% for order in orders %}
+            <li style="padding: 10px; border-bottom: 1px solid #eee; font-size: 18px;">
+                <b>Product:</b> {{ order.product_name }} | 
+                <b>Status:</b> <span style="color: #00b894; font-weight: bold;">{{ order.status }}</span>
+            </li>
+        {% empty %}
+            <li style="text-align: center; color: #636e72;">अभी कोई लाइव ऑर्डर नहीं है।</li>
+        {% endfor %}
+    </ul>
+</div>
+        <div class="location-tag">Hazratganj</div>
+        <div class="location-tag">Gomti Nagar</div>
+        <div class="location-tag">Alambagh</div>
+        <div class="location-tag">Indira Nagar</div>
+        <br>
+        <a href="/admin" class="btn">Seller Login / Manage Orders</a>
+    </div>
+</body>
+</html>
